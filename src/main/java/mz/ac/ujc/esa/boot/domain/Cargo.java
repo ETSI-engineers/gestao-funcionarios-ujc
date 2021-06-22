@@ -1,7 +1,5 @@
 package mz.ac.ujc.esa.boot.domain;
 
-import java.util.List;
-
 import javax.persistence.*;
 
 
@@ -18,8 +16,9 @@ public class Cargo extends AbstractEntity<Long> {
 	@JoinColumn(name="departamento_id_fk")
 	private Departamento departamento;
 	
-	@OneToMany(mappedBy = "cargo")	
-	private List<Funcionario> fucionarios;
+	@OneToOne(cascade = CascadeType.ALL) 
+	@JoinColumn(name = "funcionario_id_fk")
+	private Funcionario funcionario;
 
 	public String getNome() {
 		return nome;
@@ -37,13 +36,15 @@ public class Cargo extends AbstractEntity<Long> {
 		this.departamento = departamento;
 	}
 
-	public List<Funcionario> getFucionarios() {
-		return fucionarios;
+	public Funcionario getFuncionario() {
+		return funcionario;
 	}
 
-	public void setFucionarios(List<Funcionario> fucionarios) {
-		this.fucionarios = fucionarios;
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
 	}
+
+
 	
 	
 }

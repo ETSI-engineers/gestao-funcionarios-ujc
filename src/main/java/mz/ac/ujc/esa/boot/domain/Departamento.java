@@ -15,8 +15,8 @@ public class Departamento extends AbstractEntity<Long> {
 		private List<Cargo> cargos;
 		
 		@ManyToOne
-		@JoinColumn(name="direcao_id_fk") 
-		private Direcao direcao;
+		@JoinColumn(name="faculdade_id_fk") 
+		private Faculdade faculdade;
 
 		public String getNome() {
 			return nome;
@@ -34,13 +34,15 @@ public class Departamento extends AbstractEntity<Long> {
 			this.cargos = cargos;
 		}
 
-		public Direcao getDirecao() {
-			return direcao;
+		public Faculdade getFaculdade() {
+			return faculdade;
 		}
 
-		public void setDirecao(Direcao direcao) {
-			this.direcao = direcao;
+		public void setFaculdade(Faculdade faculdade) {
+			this.faculdade = faculdade;
 		}
+
+		
 		
 		
 }

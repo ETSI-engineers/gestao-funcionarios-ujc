@@ -27,21 +27,21 @@ public class Funcionario extends AbstractEntity<Long> {
 	@JoinColumn(name = "endereco_id_fk")
 	private Endereco endereco;
 	
-	@ManyToOne
-	@JoinColumn(name ="cargo_id_fk")
-	private Cargo cargo;
-	
-	@ManyToOne
-	@JoinColumn(name = "funcao_id_fk")
-	private Funcao funcao;
-	
-	@Column(nullable=false, columnDefinition = "DECIMAL(7,2) DEFAULT 0.00") // indica ao jpa que deve usar tipo de dados decimla com 7 digitos e duas casas decimais
+	@Column(nullable=false, columnDefinition = "DECIMAL(7,2) DEFAULT 0.00") 
 	private BigDecimal salario;
 	
 	@ManyToOne
-	@JoinColumn(name ="cartegoria_id_fk")
-	private Categoria categotia;
+	@JoinColumn(name ="departamento_id_fk")
+	private Departamento departamento;
 	
+	@ManyToOne
+	@JoinColumn(name ="tipo_id_fk")
+	private Tipo tipo;
+	
+	@ManyToOne
+	@JoinColumn(name ="nivelAcademico_id_fk")
+	private NivelAcademico nivelAcademico;
+
 	public String getNome() {
 		return nome;
 	}
@@ -82,14 +82,6 @@ public class Funcionario extends AbstractEntity<Long> {
 		this.endereco = endereco;
 	}
 
-	public Cargo getCargo() {
-		return cargo;
-	}
-
-	public void setCargo(Cargo cargo) {
-		this.cargo = cargo;
-	}
-
 	public BigDecimal getSalario() {
 		return salario;
 	}
@@ -98,21 +90,28 @@ public class Funcionario extends AbstractEntity<Long> {
 		this.salario = salario;
 	}
 
-	public Funcao getFuncao() {
-		return funcao;
+	public Departamento getDepartamento() {
+		return departamento;
 	}
 
-	public void setFuncao(Funcao funcao) {
-		this.funcao = funcao;
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
 	}
 
-	public Categoria getCategotia() {
-		return categotia;
+	public Tipo getTipo() {
+		return tipo;
 	}
 
-	public void setCategotia(Categoria categotia) {
-		this.categotia = categotia;
+	public void setTipo(Tipo tipo) {
+		this.tipo = tipo;
 	}
-	
-	
+
+	public NivelAcademico getNivelAcademico() {
+		return nivelAcademico;
+	}
+
+	public void setNivelAcademico(NivelAcademico nivelAcademico) {
+		this.nivelAcademico = nivelAcademico;
+	}
+
 }
