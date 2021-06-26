@@ -24,7 +24,7 @@ public class Funcionario extends AbstractEntity<Long> {
 	private LocalDate dataSaida;
 
 	@OneToOne(cascade = CascadeType.ALL) 
-	@JoinColumn(name = "endereco_id_fk")
+	@JoinColumn(name = "endereco_id_fk", nullable=false)
 	private Endereco endereco;
 	
 	@Column(nullable=false, columnDefinition = "DECIMAL(7,2) DEFAULT 0.00") 
@@ -35,11 +35,11 @@ public class Funcionario extends AbstractEntity<Long> {
 	private Departamento departamento;
 	
 	@ManyToOne
-	@JoinColumn(name ="tipo_id_fk")
+	@JoinColumn(name ="tipo_id_fk", nullable=false)
 	private Tipo tipo;
 	
 	@ManyToOne
-	@JoinColumn(name ="nivelAcademico_id_fk")
+	@JoinColumn(name ="nivelAcademico_id_fk", nullable=false)
 	private NivelAcademico nivelAcademico;
 
 	public String getNome() {

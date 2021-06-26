@@ -1,10 +1,6 @@
 package mz.ac.ujc.esa.boot.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @SuppressWarnings("serial")
@@ -12,15 +8,13 @@ import javax.persistence.Table;
 @Table(name="ENDERECOS")
 public class Endereco extends AbstractEntity<Long> {
 	
-	@Column (nullable = false)
+	@Column (nullable = false, unique = true)
 	private String cidade;
 	
+	@Column (nullable = false, unique = true)
+	private String distrito;
 	
-	@Column (nullable = false, length = 3)
-	@Enumerated(EnumType.STRING)
-	private Distrito distrito;
-	
-	@Column (nullable = false)
+	@Column (nullable = false, unique = true)
 	private String bairro;
 	
 	@Column (nullable = true)
@@ -37,11 +31,12 @@ public class Endereco extends AbstractEntity<Long> {
 		this.cidade = cidade;
 	}
 
-	public Distrito getDistrito() {
+	
+	public String getDistrito() {
 		return distrito;
 	}
 
-	public void setDistrito(Distrito distrito) {
+	public void setDistrito(String distrito) {
 		this.distrito = distrito;
 	}
 

@@ -15,7 +15,7 @@ public class Departamento extends AbstractEntity<Long> {
 		private List<Cargo> cargos;
 		
 		@ManyToOne
-		@JoinColumn(name="faculdade_id_fk") 
+		@JoinColumn(name="faculdade_id_fk", nullable=false)
 		private Faculdade faculdade;
 
 		public String getNome() {

@@ -4,23 +4,23 @@ import java.time.LocalDate;
 
 import javax.persistence.*;
 
+
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "REQ_FERIAS")
+@Table(name="REQ_FERIAS")
 public class ReqFerias extends AbstractEntity<Long> {
 
-	@Column(name = "data_inicio", columnDefinition = "DATE")
+	@Column(name = "data_inicio", nullable=false, columnDefinition = "DATE")
 	private LocalDate data_inicio;
-
-	@Column(name = "data_fim", columnDefinition = "DATE")
+	
+	@Column(name = "data_fim", nullable=false, columnDefinition = "DATE")
 	private LocalDate data_fim;
-
-	@Column(nullable = false)
-	@Enumerated(EnumType.STRING)
-	private Estado estado;
-
+	
+	@Column(nullable=false, unique = true)
+	private String estado;
+	
 	@ManyToOne
-	@JoinColumn(name = "funcionario_id_fk")
+	@JoinColumn(name ="funcionario_id_fk", nullable=false)
 	private Funcionario funcionario;
 
 	public LocalDate getData_inicio() {
@@ -39,11 +39,11 @@ public class ReqFerias extends AbstractEntity<Long> {
 		this.data_fim = data_fim;
 	}
 
-	public Estado getEstado() {
+	public String getEstado() {
 		return estado;
 	}
 
-	public void setEstado(Estado estado) {
+	public void setEstado(String estado) {
 		this.estado = estado;
 	}
 
@@ -54,5 +54,6 @@ public class ReqFerias extends AbstractEntity<Long> {
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
 	}
-
+	
+	
 }

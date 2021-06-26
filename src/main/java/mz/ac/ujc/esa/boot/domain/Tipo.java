@@ -7,7 +7,16 @@ import javax.persistence.*;
 @Table(name="TIPO")
 public class Tipo extends AbstractEntity<Long> {
 
-	@Column(nullable=false)
-	@Enumerated(EnumType.STRING)
-	private Designacao designacao;
+	@Column(nullable=false, unique = true)
+	private String designacao;
+
+	public String getDesignacao() {
+		return designacao;
+	}
+
+	public void setDesignacao(String designacao) {
+		this.designacao = designacao;
+	}
+	
+	
 }

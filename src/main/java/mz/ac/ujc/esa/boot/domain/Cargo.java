@@ -13,7 +13,7 @@ public class Cargo extends AbstractEntity<Long> {
 	private String nome;
 	
 	@ManyToOne 
-	@JoinColumn(name="departamento_id_fk")
+	@JoinColumn(name="departamento_id_fk", nullable=false)
 	private Departamento departamento;
 	
 	@OneToOne(cascade = CascadeType.ALL) 
@@ -43,8 +43,4 @@ public class Cargo extends AbstractEntity<Long> {
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
 	}
-
-
-	
-	
 }

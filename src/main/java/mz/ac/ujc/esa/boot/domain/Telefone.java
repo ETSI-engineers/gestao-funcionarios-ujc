@@ -7,24 +7,13 @@ import javax.persistence.*;
 @Table(name = "TELEFONE")
 public class Telefone extends AbstractEntity<Long> {
 
-	@Column (nullable = false, length = 7) 
-	@Enumerated(EnumType.STRING)
-	private Operadora operadora;
 	
-	@Column(name = "contacto", nullable = false, unique = true)
+	@Column(name = "numero", nullable = false, unique = true)
 	private Integer numero;
 	
 	@ManyToOne
-	@JoinColumn(name="funcionario_id_fk") 
+	@JoinColumn(name="funcionario_id_fk", nullable=false) 
 	private Funcionario funcionario;
-
-	public Operadora getOperadora() {
-		return operadora;
-	}
-
-	public void setOperadora(Operadora operadora) {
-		this.operadora = operadora;
-	}
 
 	public Integer getNumero() {
 		return numero;
