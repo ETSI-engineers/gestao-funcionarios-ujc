@@ -13,7 +13,7 @@ import mz.ac.ujc.esa.boot.domain.Tipo;
 @Transactional(readOnly = false)
 public class TipoServiceImpl implements TipoService{
 
-	@Autowired
+	@Autowired (required=false)
 	private TipoDao dao;
 	
 	@Override

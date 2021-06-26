@@ -13,7 +13,7 @@ import mz.ac.ujc.esa.boot.domain.Cargo;
 @Transactional(readOnly = false)
 public class CargoServiceImpl implements CargoService{
 
-	@Autowired
+	@Autowired(required=false)
 	private CargoDao dao;
 	
 	@Override

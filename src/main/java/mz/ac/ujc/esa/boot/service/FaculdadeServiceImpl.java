@@ -13,7 +13,7 @@ import mz.ac.ujc.esa.boot.domain.Faculdade;
 @Transactional(readOnly = false)
 public class FaculdadeServiceImpl implements FaculdadeService{
 
-	@Autowired
+	@Autowired(required=false)
 	private FaculdadeDao dao;
 	
 	@Override

@@ -13,7 +13,7 @@ import mz.ac.ujc.esa.boot.domain.Autorizacao;
 @Transactional(readOnly = false)
 public class AutorizacaoServiceImpl implements AutorizacaoService{
 	
-	@Autowired
+	@Autowired(required=false)
 	private AutorizacaoDao dao;
 
 	@Override

@@ -13,7 +13,7 @@ import mz.ac.ujc.esa.boot.domain.NivelAcademico;
 @Transactional(readOnly = false)
 public class NivelAcademicoServiceImpl implements NivelAcademicoService{
 
-	@Autowired
+	@Autowired(required=false)
 	private NivelAcademicoDao dao;
 	
 	@Override

@@ -13,7 +13,7 @@ import mz.ac.ujc.esa.boot.domain.Funcionario;
 @Transactional(readOnly = false)
 public class FuncionarioServiceImpl implements FuncionarioService{
 
-	@Autowired
+	@Autowired(required=false)
 	private FuncionarioDao dao;
 	
 	@Override

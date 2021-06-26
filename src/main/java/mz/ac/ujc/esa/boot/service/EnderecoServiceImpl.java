@@ -13,7 +13,7 @@ import mz.ac.ujc.esa.boot.domain.Endereco;
 @Transactional(readOnly = false)
 public class EnderecoServiceImpl implements EnderecoService{
 
-	@Autowired
+	@Autowired(required=false)
 	private EnderecoDao dao;
 	
 	@Override

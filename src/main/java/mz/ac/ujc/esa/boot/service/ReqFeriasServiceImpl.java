@@ -13,7 +13,7 @@ import mz.ac.ujc.esa.boot.domain.ReqFerias;
 @Transactional(readOnly = false)
 public class ReqFeriasServiceImpl implements ReqFeriasService{
 
-	@Autowired
+	@Autowired(required=false)
 	private ReqFeriasDao dao;
 	
 	@Override

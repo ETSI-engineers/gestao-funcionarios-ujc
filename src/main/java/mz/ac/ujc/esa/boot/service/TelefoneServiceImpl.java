@@ -13,7 +13,7 @@ import mz.ac.ujc.esa.boot.domain.Telefone;
 @Transactional(readOnly = false)
 public class TelefoneServiceImpl implements TelefoneService{
 
-	@Autowired
+	@Autowired(required=false)
 	private TelefoneDao dao;
 	
 	@Override

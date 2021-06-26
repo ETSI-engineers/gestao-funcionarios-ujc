@@ -13,7 +13,7 @@ import mz.ac.ujc.esa.boot.domain.Departamento;
 @Transactional(readOnly = false)
 public class DepartamentoServiceImpl implements DepartamentoService{
 
-	@Autowired
+	@Autowired(required=false)
 	private DepartamentoDao dao;
 	
 	@Override
