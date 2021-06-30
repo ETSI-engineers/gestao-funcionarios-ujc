@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import mz.ac.ujc.esa.boot.domain.Telefone;
 
 @Repository
-public abstract class TelefoneDaoImpl extends AbstractDao<Telefone, Long> implements TelefoneDao{
+public class TelefoneDaoImpl extends AbstractDao<Telefone, Long> implements TelefoneDao{
 
 }

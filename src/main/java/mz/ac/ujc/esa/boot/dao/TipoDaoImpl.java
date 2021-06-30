@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import mz.ac.ujc.esa.boot.domain.Tipo;
 
 @Repository
-public abstract class TipoDaoImpl extends AbstractDao<Tipo, Long> implements TipoDao{
+public class TipoDaoImpl extends AbstractDao<Tipo, Long> implements TipoDao{
 
 }

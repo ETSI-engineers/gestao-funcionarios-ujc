@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import mz.ac.ujc.esa.boot.domain.Autorizacao;
 
 @Repository
-public abstract class AutorizacaoDaoImpl extends AbstractDao<Autorizacao, Long> implements AutorizacaoDao{
+public class AutorizacaoDaoImpl extends AbstractDao<Autorizacao, Long> implements AutorizacaoDao{
 
 
 }
