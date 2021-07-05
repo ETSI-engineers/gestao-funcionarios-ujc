@@ -4,17 +4,30 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>UJC | Cargos</title>
+        <title>UJC | Adicionar Faculdade</title>
 
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-        <!-- DataTables -->
-        <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-        <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-        <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
+        <!-- iCheck for checkboxes and radio inputs -->
+        <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+        <!-- Bootstrap Color Picker -->
+        <link rel="stylesheet" href="../../plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+        <!-- Tempusdominus Bootstrap 4 -->
+        <link rel="stylesheet" href="../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+        <!-- Select2 -->
+        <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
+        <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+        <!-- Bootstrap4 Duallistbox -->
+        <link rel="stylesheet" href="../../plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+        <!-- BS Stepper -->
+        <link rel="stylesheet" href="../../plugins/bs-stepper/css/bs-stepper.min.css">
+        <!-- dropzonejs -->
+        <link rel="stylesheet" href="../../plugins/dropzone/min/dropzone.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
     </head>
@@ -125,7 +138,7 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="../pages/funcionarios/list-func.html" class="nav-link">
+                                        <a href="../funcionarios/list-func.html" class="nav-link">
                                             <i class="fas fa-angle-right nav-icon"></i>
                                             <p>Todos Funcionarios</p>
                                         </a>
@@ -196,12 +209,12 @@
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1>Cargos da UJC</h1>
+                                <h1>Adicionar Faculdade</h1>
                             </div>
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
                                     <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                                    <li class="breadcrumb-item active">Cargos</li>
+                                    <li class="breadcrumb-item active">Adicionar Faculdade</li>
                                 </ol>
                             </div>
                         </div>
@@ -212,122 +225,72 @@
                 <section class="content">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-12">
-                                <div class="card card-primary">
+
+                            <form action="">
+                                <div class="card card-primary" style="margin-left: 400px; width: 100%; padding: 10px;">
                                     <div class="card-header">
-                                        <h3 class="card-title">Cargos Disponiveis</h3>
+                                        <h3 class="card-title">Detalhes do Faculdade</h3>
                                     </div>
                                     <!-- /.card-header -->
                                     <div class="card-body">
-                                        <table id="example1" class="table table-bordered table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>Nome do Cargo</th>
-                                                    <th>Departamento</th>
-                                                    <th>Responsavel</th>
-                                                    <th>Accoes</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Cargo 1</td>
-                                                    <td>Informatica
-                                                    </td>
-                                                    <td>Helder Josue</td>
-                                                    <td class="project-actions text-right">
-                                                        <!-- <a class="btn btn-primary btn-sm" href="#">
-                                                            <i class="fas fa-folder">
-                                                            </i>
-                                                            Ver
-                                                        </a> -->
-                                                        <a class="btn btn-info btn-sm" href="#">
-                                                            <i class="fas fa-pencil-alt">
-                                                            </i>
-                                                            Editar
-                                                        </a>
-                                                        <a class="btn btn-danger btn-sm" href="#">
-                                                            <i class="fas fa-trash">
-                                                            </i>
-                                                            Apagar
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Cargo 2</td>
-                                                    <td>Informatica
-                                                    </td>
-                                                    <td>Aike Jose</td>
-                                                    <td class="project-actions text-right">
-                                                        <!-- <a class="btn btn-primary btn-sm" href="#">
-                                                            <i class="fas fa-folder">
-                                                            </i>
-                                                            Ver
-                                                        </a> -->
-                                                        <a class="btn btn-info btn-sm" href="#">
-                                                            <i class="fas fa-pencil-alt">
-                                                            </i>
-                                                            Editar
-                                                        </a>
-                                                        <a class="btn btn-danger btn-sm" href="#">
-                                                            <i class="fas fa-trash">
-                                                            </i>
-                                                            Apagar
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Cargo 3</td>
-                                                    <td>Informatica
-                                                    </td>
-                                                    <td>Denilson Mac</td>
-                                                    <td class="project-actions text-right">
-                                                        <!-- <a class="btn btn-primary btn-sm" href="#">
-                                                            <i class="fas fa-folder">
-                                                            </i>
-                                                            Ver
-                                                        </a> -->
-                                                        <a class="btn btn-info btn-sm" href="#">
-                                                            <i class="fas fa-pencil-alt">
-                                                            </i>
-                                                            Editar
-                                                        </a>
-                                                        <a class="btn btn-danger btn-sm" href="#">
-                                                            <i class="fas fa-trash">
-                                                            </i>
-                                                            Apagar
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Nome da Faculdade</label>
+                                                    <input type="text" class="form-control" id="nomeFac"
+                                                        placeholder="Nome da Faculdade">
+                                                </div>
+                                                <!-- /.form-group -->
+                                                <div class="form-group">
+                                                    <label>Endereço</label>
+                                                    <input type="text" class="form-control" id="enderecoFac"
+                                                        placeholder="Ex: Maputo, Av.Circular, 1124">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Descrição</label>
+                                                    <input type="text" class="form-control" id="siglaFac"
+                                                        placeholder="Descrição ...">
+                                                </div>
+                                                <!-- /.form-group -->
+                                            </div>
+                                        </div>
+                                        <!-- /.row -->
 
-                                        </table>
                                     </div>
-                                    <!-- /.card-body -->
+                                    <div class="card-footer">
+                                        <button type="submit" class="btn btn-primary" onclick=alerta()>Submeter</button>
+                                    </div>
+                                    <!-- /.row -->
                                 </div>
-                                <!-- /.card -->
-                            </div>
-                            <!-- /.col -->
-                        </div>
-                        <!-- /.row -->
-                    </div>
-                    <!-- /.container-fluid -->
-                </section>
-                <!-- /.content -->
-            </div>
-            <!-- /.content-wrapper -->
-            <footer class="main-footer">
-                Todos Direitos Reservados a
-                <strong><a href="iframe.html">UJC</a> Copyright &copy;2021.</strong>
-                <div class="float-right d-none d-sm-inline-block">
-                    <b>Versão</b> 1.0.0
-                </div>
-            </footer>
 
-            <!-- Control Sidebar -->
-            <aside class="control-sidebar control-sidebar-dark">
-                <!-- Control sidebar content goes here -->
-            </aside>
-            <!-- /.control-sidebar -->
+                        </div>
+                        <!-- /.card -->
+
+                        </form>
+
+
+
+
+                    </div>
+            </div>
+            <!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            Todos Direitos Reservados a
+            <strong><a href="index.html">UJC</a> Copyright &copy;2021.</strong>
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Versão</b> 1.0.0
+            </div>
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
         </div>
         <!-- ./wrapper -->
 
@@ -335,41 +298,30 @@
         <script src="../../plugins/jquery/jquery.min.js"></script>
         <!-- Bootstrap 4 -->
         <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- DataTables  & Plugins -->
-        <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-        <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-        <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-        <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-        <script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-        <script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-        <script src="../../plugins/jszip/jszip.min.js"></script>
-        <script src="../../plugins/pdfmake/pdfmake.min.js"></script>
-        <script src="../../plugins/pdfmake/vfs_fonts.js"></script>
-        <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-        <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
-        <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+        <!-- Select2 -->
+        <script src="../../plugins/select2/js/select2.full.min.js"></script>
+        <!-- Bootstrap4 Duallistbox -->
+        <script src="../../plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+        <!-- InputMask -->
+        <script src="../../plugins/moment/moment.min.js"></script>
+        <script src="../../plugins/inputmask/jquery.inputmask.min.js"></script>
+        <!-- date-range-picker -->
+        <script src="../../plugins/daterangepicker/daterangepicker.js"></script>
+        <!-- bootstrap color picker -->
+        <script src="../../plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+        <!-- Tempusdominus Bootstrap 4 -->
+        <script src="../../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+        <!-- Bootstrap Switch -->
+        <script src="../../plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+        <!-- BS-Stepper -->
+        <script src="../../plugins/bs-stepper/js/bs-stepper.min.js"></script>
+        <!-- dropzonejs -->
+        <script src="../../plugins/dropzone/min/dropzone.min.js"></script>
         <!-- AdminLTE App -->
         <script src="../../dist/js/adminlte.min.js"></script>
         <!-- AdminLTE for demo purposes -->
         <script src="../../dist/js/demo.js"></script>
         <!-- Page specific script -->
-        <script>
-            $(function () {
-                $("#example1").DataTable({
-                    "responsive": true, "lengthChange": false, "autoWidth": false,
-                    "buttons": ["excel", "pdf", "print", "colvis"]
-                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-                $('#example2').DataTable({
-                    "paging": true,
-                    "lengthChange": false,
-                    "searching": false,
-                    "ordering": true,
-                    "info": true,
-                    "autoWidth": false,
-                    "responsive": true,
-                });
-            });
-        </script>
     </body>
 
 </html>

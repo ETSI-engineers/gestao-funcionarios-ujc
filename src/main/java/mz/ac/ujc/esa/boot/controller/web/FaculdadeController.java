@@ -5,31 +5,36 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/funcionarios")
-public class FuncionarioController {
+@RequestMapping("/faculdades")
+public class FaculdadeController {
 
     @GetMapping("cadastrar")
     public String cadastrar() {
 
-        return "/admin/pages/funcionarios/add-func";
+        return "/admin/pages/faculdades/add-faculdade";
     }
 
     @GetMapping("listar")
     public String listar() {
 
-        return "/admin/pages/funcionarios/list-func";
+        return "/admin/pages/faculdades/list-faculdade";
     }
 
     @GetMapping("actualizar")
     public String actualizar() {
 
-        return "/admin/pages/funcionarios/edit-curso";
+        return "/admin/pages/faculdades/edit-faculdade";
     }
 
     @GetMapping("apagar")
     public String apagar() {
 
-        return "/admin/pages/funcionarios/delete-curso";
+        return "/admin/pages/faculdades/delete-faculdade";
     }
 
+    @GetMapping("home")
+    public String index() {
+
+        return "/admin/iframe";
+    }
 }

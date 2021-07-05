@@ -32,4 +32,9 @@ public class CargoController {
 		return "/admin/pages/cargos/add-cargo";
 	}
 
+	@GetMapping("home")
+	public String index() {
+
+		return "/admin/iframe";
+	}
 }
