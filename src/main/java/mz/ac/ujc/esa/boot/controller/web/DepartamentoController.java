@@ -32,9 +32,4 @@ public class DepartamentoController {
         return "/admin/pages/departamentos/delete-departamento";
     }
 
-    @GetMapping("home")
-    public String index() {
-
-        return "/admin/iframe";
-    }
 }

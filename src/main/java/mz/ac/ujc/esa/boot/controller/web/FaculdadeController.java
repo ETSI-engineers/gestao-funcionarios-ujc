@@ -31,10 +31,4 @@ public class FaculdadeController {
 
         return "/admin/pages/faculdades/delete-faculdade";
     }
-
-    @GetMapping("home")
-    public String index() {
-
-        return "/admin/iframe";
-    }
 }

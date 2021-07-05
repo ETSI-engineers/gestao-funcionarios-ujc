@@ -17,11 +17,12 @@
         <!-- overlayScrollbars -->
         <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
         <link rel="stylesheet" href="/dist/css/adminlte.css">
+
     </head>
 
-    <body>
+    <body class="hold-transition sidebar-mini layout-fixed" data-panel-auto-height-mode="height">
         <!-- div mae -->
-        <div>
+        <div class="wrapper">
 
             <!-- cabecalho -->
             <nav th:replace="fragments/header :: cabecalho">
@@ -30,24 +31,30 @@
 
             <!-- menu lateral -->
 
-            <aside th:replace="fragments/sidebar :: sidebr">
+            <aside th:replace="fragments/sidebar :: nav-sidebar">
 
             </aside>
 
             <!-- conteudo da pagina -->
 
-            <div>
+            <div class="content-wrapper iframe-mode" data-widget="iframe" data-loading-screen="750"
+                layout:fragment=" corpo">
 
+                <div th:replace="/iframe :: abas">
 
-                <div>
+                </div>
+
+                <div th:replace="/iframe :: load">
 
                 </div>
 
 
-                <div>
 
-                </div>
+
+
             </div>
+
+
 
 
             <!-- rodape -->
@@ -60,7 +67,6 @@
             <aside>
 
             </aside>
-
         </div>
 
 
@@ -81,6 +87,12 @@
         <script src="/dist/js/adminlte.js"></script>
         <!-- AdminLTE for demo purposes -->
         <script src="/dist/js/demo.js"></script>
+
+
+
+
+
+
     </body>
 
 </html>
