@@ -35,6 +35,6 @@ public class CargoController {
 	@GetMapping("home")
 	public String index() {
 
-		return "/admin/iframe";
+		return "/layout";
 	}
 }
