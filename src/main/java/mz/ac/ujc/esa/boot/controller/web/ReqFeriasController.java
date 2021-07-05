@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/requisicoes")
 public class ReqFeriasController {
+
     @GetMapping("autorizar")
-    public String cadastrar() {
+    public String autorizar() {
 
         return "/admin/pages/req-ferias/requisicoes";
     }
@@ -16,7 +17,7 @@ public class ReqFeriasController {
     @GetMapping("listar")
     public String listar() {
 
-        return "/admin/pages/departamentos/list-departamento";
+        return "/admin/pages/req-ferias/requisicoes";
     }
 
     @GetMapping("actualizar")
