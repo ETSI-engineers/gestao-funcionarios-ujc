@@ -8,38 +8,35 @@ import javax.persistence.*;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name="FUNCIONARIOS")
+@Table(name = "FUNCIONARIOS")
 public class Funcionario extends AbstractEntity<Long> {
-	
-	@Column(nullable=false, unique =true)
+
+	@Column(nullable = false, unique = true)
 	private String nome;
-	
+
 	@Column(name = "data_nascimento", nullable = false, columnDefinition = "DATE")
 	private Date data_nasc;
-	
-	@Column(name = "data_entrada",nullable=false, columnDefinition = "DATE")
+
+	@Column(name = "data_entrada", nullable = false, columnDefinition = "DATE")
 	private LocalDate dataEntrada;
-	
+
 	@Column(name = "data_saida", columnDefinition = "DATE")
 	private LocalDate dataSaida;
 
-	@OneToOne(cascade = CascadeType.ALL) 
-	@JoinColumn(name = "endereco_id_fk", nullable=false)
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "endereco_id_fk", nullable = false)
 	private Endereco endereco;
-	
-	@Column(nullable=false, columnDefinition = "DECIMAL(7,2) DEFAULT 0.00") 
-	private BigDecimal salario;
-	
+
 	@ManyToOne
-	@JoinColumn(name ="departamento_id_fk")
+	@JoinColumn(name = "departamento_id_fk")
 	private Departamento departamento;
-	
+
 	@ManyToOne
-	@JoinColumn(name ="tipo_id_fk", nullable=false)
+	@JoinColumn(name = "tipo_id_fk", nullable = false)
 	private Tipo tipo;
-	
+
 	@ManyToOne
-	@JoinColumn(name ="nivelAcademico_id_fk", nullable=false)
+	@JoinColumn(name = "nivelAcademico_id_fk", nullable = false)
 	private NivelAcademico nivelAcademico;
 
 	public String getNome() {
@@ -80,14 +77,6 @@ public class Funcionario extends AbstractEntity<Long> {
 
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
-	}
-
-	public BigDecimal getSalario() {
-		return salario;
-	}
-
-	public void setSalario(BigDecimal salario) {
-		this.salario = salario;
 	}
 
 	public Departamento getDepartamento() {

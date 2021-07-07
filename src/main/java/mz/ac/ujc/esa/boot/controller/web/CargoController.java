@@ -13,9 +13,6 @@ import mz.ac.ujc.esa.boot.service.CargoService;
 @RequestMapping("/cargos")
 public class CargoController {
 
-	@Autowired
-	CargoService service;
-
 	@GetMapping("cadastrar")
 	public String cadastrar(Cargo cargo) {
 
@@ -26,12 +23,6 @@ public class CargoController {
 	public String listar() {
 
 		return "/admin/pages/cargos/list-cargo";
-	}
-
-	@PostMapping("gravar")
-	public String gravar(Cargo cargo) {
-		service.registar(cargo);
-		return "redirect:/cargos/cadastrar";
 	}
 
 	@GetMapping("actualizar")

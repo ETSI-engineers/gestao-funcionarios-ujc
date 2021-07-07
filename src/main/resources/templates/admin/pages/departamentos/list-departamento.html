@@ -59,14 +59,13 @@
 
                                                     <th>Nome do Departamento</th>
                                                     <th>Faculdade</th>
-
                                                     <th>Acções</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>RH</td>
-                                                    <td>FCT</td>
+                                                <tr th:each="d : ${departamentos}">
+                                                    <td th:text="${d.nome}"></td>
+                                                    <td th:text="${d.faculdade}"></td>
 
 
                                                     <td class="project-actions text-right">
@@ -75,7 +74,8 @@
                                                             </i>
                                                             Ver
                                                         </a>
-                                                        <a class="btn btn-info btn-sm" href="#">
+                                                        <a class="btn btn-info btn-sm"
+                                                            th:href="@{/departamentos/editar/{id} (id=${d.id})}">
                                                             <i class="fas fa-pencil-alt">
                                                             </i>
                                                             Editar
@@ -88,50 +88,8 @@
                                                     </td>
 
                                                 </tr>
-                                                <tr>
-                                                    <td>Financas</td>
-                                                    <td>FCT</td>
 
-                                                    <td class="project-actions text-right">
-                                                        <a class="btn btn-primary btn-sm" href="#">
-                                                            <i class="fas fa-folder">
-                                                            </i>
-                                                            Ver
-                                                        </a>
-                                                        <a class="btn btn-info btn-sm" href="#">
-                                                            <i class="fas fa-pencil-alt">
-                                                            </i>
-                                                            Editar
-                                                        </a>
-                                                        <a class="btn btn-danger btn-sm" href="#">
-                                                            <i class="fas fa-trash">
-                                                            </i>
-                                                            Apagar
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Registo Academico</td>
-                                                    <td>FCT</td>
 
-                                                    <td class="project-actions text-right">
-                                                        <a class="btn btn-primary btn-sm" href="#">
-                                                            <i class="fas fa-folder">
-                                                            </i>
-                                                            Ver
-                                                        </a>
-                                                        <a class="btn btn-info btn-sm" href="#">
-                                                            <i class="fas fa-pencil-alt">
-                                                            </i>
-                                                            Editar
-                                                        </a>
-                                                        <a class="btn btn-danger btn-sm" href="#">
-                                                            <i class="fas fa-trash">
-                                                            </i>
-                                                            Apagar
-                                                        </a>
-                                                    </td>
-                                                </tr>
                                             </tbody>
 
                                         </table>

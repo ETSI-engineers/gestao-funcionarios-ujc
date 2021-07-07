@@ -71,20 +71,20 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label>Nome do Cargo</label>
-                                                    <input type="text" class="form-control" id="exampleInputText"
+                                                    <input type="text" class="form-control" id="Nome"
                                                         placeholder="Nome do Cargo" th:field="*{nome}">
                                                 </div>
                                                 <!-- /.form-group -->
                                                 <div class="form-group">
                                                     <label>Departamento</label>
-                                                    <select class="form-control select2" style="width: 100%;"
-                                                        th:field="*{departamento}">
-                                                        <option value="">Nenhuma</option>
-                                                        <option value="1">Desenvolvimento de
+                                                    <select id="departamento" class="form-control select2"
+                                                        style="width: 100%;" th:field="*{departamento}">
+                                                        <option>Nenhuma</option>
+                                                        <option>Desenvolvimento de
                                                             Sistemas</option>
-                                                        <option value="2">Gestao de Projectos</option>
-                                                        <option value="3">Implementacao</option>
-                                                        <option value="4">Recursos Humanos</option>
+                                                        <option>Gestao de Projectos</option>
+                                                        <option>Implementacao</option>
+                                                        <option>Recursos Humanos</option>
                                                     </select>
                                                 </div>
                                                 <!-- /.form-group -->
