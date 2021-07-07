@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>UJC | Adicionar Faculdade</title>
+        <title>UJC | Adicionar Requisições</title>
 
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet"
@@ -47,10 +47,6 @@
 
                 <!-- Right navbar links -->
                 <ul class="navbar-nav ml-auto">
-
-                    <!-- <a class="nav-link" data-widget="control-sidebar" href="#" class="d-block" style="color: white"><i
-                    class="fas fa-user"></i> Helder Josue</a> -->
-
                     <li class="nav-item">
                         <a class="nav-link" data-widget="control-sidebar" href="#" style="color: white">
                             <i class="fas fa-user"></i> Helder Josue
@@ -65,14 +61,13 @@
             <!-- /.navbar -->
 
             <!-- Main Sidebar Container -->
-            <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <aside class="main-sidebar sidebar-dark-primary elevation-4" th:fragment="user-nav-sidebar">
                 <!-- Brand Logo -->
                 <a href="#" class="brand-link">
                     <img src="/dist/img/logo.jpeg" alt="UJC Logo" class="brand-image img-circle elevation-3"
                         style="opacity: .8">
                     <span class="brand-text font-weight-light">SGF UJC</span>
                 </a>
-
                 <!-- Sidebar -->
                 <div class="sidebar">
 
@@ -80,78 +75,7 @@
                     <nav class="mt-2">
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                             data-accordion="false">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-id-badge"></i>
-                                    <p>
-                                        CARGOS
-                                        <i class="fas fa-angle-down right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="../pages/cargos/list-cargos.html" class="nav-link">
-                                            <i class="fas fa-angle-right nav-icon"></i>
-                                            <p>Todos Cargos</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../pages/cargos/list-cargo.html" class="nav-link">
-                                            <i class="fas fa-angle-right nav-icon"></i>
-                                            <p>Adicionar Cargos</p>
-                                        </a>
-                                    </li>
 
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-project-diagram"></i>
-                                    <p>
-                                        DEPARTAMENTOS
-                                        <i class="right fas fa-angle-down"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="../pages/departamento/list-departamento.html" class="nav-link">
-                                            <i class="fas fa-angle-right nav-icon"></i>
-                                            <p>Todos Departamentos</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../pages/departamento/add-departamento.html" class="nav-link">
-                                            <i class="fas fa-angle-right nav-icon"></i>
-                                            <p>Adicionar Departamento</p>
-                                        </a>
-                                    </li>
-
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-user-tie"></i>
-                                    <p>
-                                        FUNCIONARIOS
-                                        <i class="fas fa-angle-down right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="../pages/funcionarios/list-func.html" class="nav-link">
-                                            <i class="fas fa-angle-right nav-icon"></i>
-                                            <p>Todos Funcionarios</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../pages/funcionarios/add-func.html" class="nav-link">
-                                            <i class="fas fa-angle-right nav-icon"></i>
-                                            <p>Adicionar Funcionarios</p>
-                                        </a>
-                                    </li>
-
-                                </ul>
-                            </li>
 
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
@@ -164,37 +88,23 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="../pages/req-ferias/list-requisicoes.html" class="nav-link">
+                                        <a href="/funcionarios/minhas" class="nav-link">
                                             <i class="fas fa-angle-right nav-icon"></i>
-                                            <p>Todas Requisições</p>
+                                            <p>Minhas Requisições</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/funcionarios/requisitar" class="nav-link">
+                                            <i class="fas fa-angle-right nav-icon"></i>
+                                            <p>Requisitar Ferias</p>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
 
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-building"></i>
-                                    <p>
-                                        FACULDADES
-                                        <i class="fas fa-angle-down right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="../pages/faculdades/list-faculdade.html" class="nav-link">
-                                            <i class="fas fa-angle-right nav-icon"></i>
-                                            <p>Todas Faculdades</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../pages/faculdades/add-faculdade.html" class="nav-link">
-                                            <i class="fas fa-angle-right nav-icon"></i>
-                                            <p>Adicionar Faculdade</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+
                         </ul>
                     </nav>
                     <!-- /.sidebar-menu -->
@@ -209,12 +119,12 @@
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1>Adicionar Faculdade</h1>
+                                <h1>Adicionar Requisições</h1>
                             </div>
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
                                     <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                                    <li class="breadcrumb-item active">Adicionar Faculdade</li>
+                                    <li class="breadcrumb-item active">Adicionar Requisições</li>
                                 </ol>
                             </div>
                         </div>
@@ -225,36 +135,36 @@
                 <section class="content">
                     <div class="container-fluid">
                         <div class="row">
-
+                            <!-- SELECT2 EXAMPLE -->
                             <form action="">
-                                <div class="card card-primary" style="margin-left: 400px; width: 100%; padding: 10px;">
+                                <div class="card card-primary" style="margin-left: 400px; width: 100%;padding: 10px;">
                                     <div class="card-header">
-                                        <h3 class="card-title">Detalhes do Faculdade</h3>
+                                        <h3 class="card-title">Detalhes do Requisição</h3>
                                     </div>
                                     <!-- /.card-header -->
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label>Nome da Faculdade</label>
-                                                    <input type="text" class="form-control" id="nomeFac"
-                                                        placeholder="Nome da Faculdade">
+                                                    <label>Data de Inicio</label>
+                                                    <input type="date" name="dataIni" id="dataAct" class="form-control">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Data de Término</label>
+                                                    <input type="date" name="dataTer" id="dataAct" class="form-control">
                                                 </div>
                                                 <!-- /.form-group -->
                                                 <div class="form-group">
-                                                    <label>Endereço</label>
-                                                    <input type="text" class="form-control" id="enderecoFac"
-                                                        placeholder="Ex: Maputo, Av.Circular, 1124">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Descrição</label>
-                                                    <input type="text" class="form-control" id="siglaFac"
-                                                        placeholder="Descrição ...">
+                                                    <!-- <label>Estado</label> -->
+                                                    <input type="text" class="form-control" id="exampleInputText"
+                                                        placeholder="informe um valor" hidden=true value="Pendente">
                                                 </div>
                                                 <!-- /.form-group -->
                                             </div>
+
                                         </div>
-                                        <!-- /.row -->
+
 
                                     </div>
                                     <div class="card-footer">
@@ -279,11 +189,11 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            Todos Direitos Reservados a
-            <strong><a href="index.html">UJC</a> Copyright &copy;2021.</strong>
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Versão</b> 1.0.0
+            <div class="float-right d-none d-sm-block">
+                <b>Version</b> 3.1.0
             </div>
+            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
+            reserved.
         </footer>
 
         <!-- Control Sidebar -->
@@ -322,6 +232,7 @@
         <!-- AdminLTE for demo purposes -->
         <script src="../../dist/js/demo.js"></script>
         <!-- Page specific script -->
+
     </body>
 
 </html>

@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>UJC | Funcionarios</title>
+        <title>UJC | Minhas Requisições</title>
 
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet"
@@ -24,7 +24,7 @@
             <!-- Navbar -->
             <nav class="main-header navbar navbar-expand navbar-white navbar-light">
                 <!-- Left navbar links -->
-                <!-- Left navbar links -->
+
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" data-widget="pushmenu" href="#" role="button" style="color: white"><i
@@ -34,6 +34,8 @@
 
                 <!-- Right navbar links -->
                 <ul class="navbar-nav ml-auto">
+
+
 
                     <li class="nav-item">
                         <a class="nav-link" data-widget="control-sidebar" href="#" style="color: white">
@@ -49,14 +51,13 @@
             <!-- /.navbar -->
 
             <!-- Main Sidebar Container -->
-            <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <aside class="main-sidebar sidebar-dark-primary elevation-4" th:fragment="user-nav-sidebar">
                 <!-- Brand Logo -->
                 <a href="#" class="brand-link">
                     <img src="/dist/img/logo.jpeg" alt="UJC Logo" class="brand-image img-circle elevation-3"
                         style="opacity: .8">
                     <span class="brand-text font-weight-light">SGF UJC</span>
                 </a>
-
                 <!-- Sidebar -->
                 <div class="sidebar">
 
@@ -64,78 +65,7 @@
                     <nav class="mt-2">
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                             data-accordion="false">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-id-badge"></i>
-                                    <p>
-                                        CARGOS
-                                        <i class="fas fa-angle-down right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="../pages/cargos/list-cargos.html" class="nav-link">
-                                            <i class="fas fa-angle-right nav-icon"></i>
-                                            <p>Todos Cargos</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../pages/cargos/list-cargo.html" class="nav-link">
-                                            <i class="fas fa-angle-right nav-icon"></i>
-                                            <p>Adicionar Cargos</p>
-                                        </a>
-                                    </li>
 
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-project-diagram"></i>
-                                    <p>
-                                        DEPARTAMENTOS
-                                        <i class="right fas fa-angle-down"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="../pages/departamento/list-departamento.html" class="nav-link">
-                                            <i class="fas fa-angle-right nav-icon"></i>
-                                            <p>Todos Departamentos</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../pages/departamento/add-departamento.html" class="nav-link">
-                                            <i class="fas fa-angle-right nav-icon"></i>
-                                            <p>Adicionar Departamento</p>
-                                        </a>
-                                    </li>
-
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-user-tie"></i>
-                                    <p>
-                                        FUNCIONARIOS
-                                        <i class="fas fa-angle-down right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="../pages/funcionarios/list-func.html" class="nav-link">
-                                            <i class="fas fa-angle-right nav-icon"></i>
-                                            <p>Todos Funcionarios</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../pages/funcionarios/add-func.html" class="nav-link">
-                                            <i class="fas fa-angle-right nav-icon"></i>
-                                            <p>Adicionar Funcionarios</p>
-                                        </a>
-                                    </li>
-
-                                </ul>
-                            </li>
 
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
@@ -148,37 +78,23 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="../pages/req-ferias/list-requisicoes.html" class="nav-link">
+                                        <a href="/funcionarios/minhas" class="nav-link">
                                             <i class="fas fa-angle-right nav-icon"></i>
-                                            <p>Todas Requisições</p>
+                                            <p>Minhas Requisições</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/funcionarios/requisitar" class="nav-link">
+                                            <i class="fas fa-angle-right nav-icon"></i>
+                                            <p>Requisitar Ferias</p>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
 
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-building"></i>
-                                    <p>
-                                        FACULDADES
-                                        <i class="fas fa-angle-down right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="../pages/faculdades/list-faculdade.html" class="nav-link">
-                                            <i class="fas fa-angle-right nav-icon"></i>
-                                            <p>Todas Faculdades</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../pages/faculdades/add-faculdade.html" class="nav-link">
-                                            <i class="fas fa-angle-right nav-icon"></i>
-                                            <p>Adicionar Faculdade</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+
                         </ul>
                     </nav>
                     <!-- /.sidebar-menu -->
@@ -193,12 +109,12 @@
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1>Funcionarios da UJC</h1>
+                                <h1>Minhas Requisições</h1>
                             </div>
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
                                     <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                                    <li class="breadcrumb-item active">Funcionarios</li>
+                                    <li class="breadcrumb-item active">Minhas Requisições</li>
                                 </ol>
                             </div>
                         </div>
@@ -212,7 +128,7 @@
                             <div class="col-12">
                                 <div class="card card-primary">
                                     <div class="card-header">
-                                        <h3 class="card-title">Funcionarios Disponiveis</h3>
+                                        <h3 class="card-title">Requisições Disponiveis</h3>
                                     </div>
                                     <!-- /.card-header -->
                                     <div class="card-body">
@@ -220,31 +136,23 @@
                                             <thead>
                                                 <tr>
                                                     <th>Nome do Funcionario</th>
-                                                    <th>Data de Nascimento</th>
-                                                    <th>Departamento</th>
-                                                    <th>Nivel Académico</th>
-                                                    <th>Endereço</th>
-                                                    <th>Data de Entrada</th>
-                                                    <th>Tipo</th>
+                                                    <th>Data de Inicio</th>
+                                                    <th>Data de Término</th>
+                                                    <th>Estado</th>
                                                     <th>Accoes</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>Helder Josue</td>
-                                                    <td>30/01/2020
+                                                    <td>Aike Ruco</td>
+                                                    <td>15/06/2021
                                                     </td>
-                                                    <td>Desenvolvimento</td>
-                                                    <td>Licenciatura</td>
-                                                    <td>MAGOANINE</td>
-                                                    <td>14/02/2021</td>
-                                                    <td>CTA</td>
+                                                    <td>14/07/2021
+                                                    </td>
+                                                    <td>Recusado</td>
+
                                                     <td class="project-actions text-right">
-                                                        <!-- <a class="btn btn-primary btn-sm" href="#">
-                                                            <i class="fas fa-folder">
-                                                            </i>
-                                                            Ver
-                                                        </a> -->
+
                                                         <a class="btn btn-info btn-sm" href="#">
                                                             <i class="fas fa-pencil-alt">
                                                             </i>
@@ -258,20 +166,16 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Helder Josue</td>
+                                                    <td>Aike Ruco</td>
                                                     <td>30/01/2020
                                                     </td>
-                                                    <td>Desenvolvimento</td>
-                                                    <td>Licenciatura</td>
-                                                    <td>MAGOANINE</td>
-                                                    <td>14/02/2021</td>
-                                                    <td>CTA</td>
+                                                    <td>/02/2020
+                                                    </td>
+                                                    <td>Recusado</td>
+
+
                                                     <td class="project-actions text-right">
-                                                        <!-- <a class="btn btn-primary btn-sm" href="#">
-                                                            <i class="fas fa-folder">
-                                                            </i>
-                                                            Ver
-                                                        </a> -->
+
                                                         <a class="btn btn-info btn-sm" href="#">
                                                             <i class="fas fa-pencil-alt">
                                                             </i>
@@ -285,14 +189,12 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Helder Josue</td>
+                                                    <td>Aike Ruco</td>
                                                     <td>30/01/2020
                                                     </td>
-                                                    <td>Desenvolvimento</td>
-                                                    <td>Licenciatura</td>
-                                                    <td>MAGOANINE</td>
-                                                    <td>14/02/2021</td>
-                                                    <td>CTA</td>
+                                                    <td>30/02/2020
+                                                    </td>
+                                                    <td>Aprovado</td>
                                                     <td class="project-actions text-right">
                                                         <!-- <a class="btn btn-primary btn-sm" href="#">
                                                             <i class="fas fa-folder">

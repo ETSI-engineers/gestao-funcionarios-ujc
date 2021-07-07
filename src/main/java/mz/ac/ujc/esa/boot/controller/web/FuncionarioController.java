@@ -32,4 +32,16 @@ public class FuncionarioController {
         return "/admin/pages/funcionarios/delete-curso";
     }
 
+    @GetMapping("minhas")
+    public String requisicoesFunc() {
+
+        return "/admin/pages/funcionarios/list-requi";
+    }
+
+    @GetMapping("requisitar")
+    public String requisitar() {
+
+        return "/admin/pages/funcionarios/add-requi";
+    }
+
 }
