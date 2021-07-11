@@ -1,4 +1,4 @@
-package mz.ac.ujc.esa.boot.controller.web;
+package mz.ac.ujc.esa.boot.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -58,9 +58,11 @@
                 <!-- Main content -->
                 <section class="content">
                     <div class="container-fluid">
+                        <div th:replace="fragments/alert"></div>
                         <div class="row">
                             <!-- SELECT2 EXAMPLE -->
-                            <form th:action="@{/cargos/gravar}" th:object="${cargo}" method="POST">
+                            <form th:action="${cargo.id == null} ? @{/cargos/gravar} : @{/cargos/editar}"
+                                th:object="${cargo}" method="POST">
                                 <div class="card card-primary" style="margin-left: 400px; width: 100%;padding: 10px;">
                                     <div class="card-header">
                                         <h3 class="card-title">Detalhes do Cargo</h3>
@@ -79,13 +81,17 @@
                                                     <label>Departamento</label>
                                                     <select id="departamento" class="form-control select2"
                                                         style="width: 100%;" th:field="*{departamento}">
-                                                        <option>Nenhuma</option>
-                                                        <option>Desenvolvimento de
+                                                        <option value="">Selecione</option>
+                                                        <option th:each="d : ${departamentos}" th:value="${d.id}"
+                                                            th:text="${d.nome}">
+                                                            Desenvolvimento de
                                                             Sistemas</option>
-                                                        <option>Gestao de Projectos</option>
-                                                        <option>Implementacao</option>
-                                                        <option>Recursos Humanos</option>
+
                                                     </select>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <input type="hidden" name="id" th:field="*{id}">
                                                 </div>
                                                 <!-- /.form-group -->
                                             </div>

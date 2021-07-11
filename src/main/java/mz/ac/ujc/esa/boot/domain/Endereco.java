@@ -2,25 +2,24 @@ package mz.ac.ujc.esa.boot.domain;
 
 import javax.persistence.*;
 
-
 @SuppressWarnings("serial")
 @Entity
-@Table(name="ENDERECOS")
+@Table(name = "ENDERECOS")
 public class Endereco extends AbstractEntity<Long> {
-	
-	@Column (nullable = false, unique = true)
+
+	@Column(nullable = false)
 	private String cidade;
-	
-	@Column (nullable = false, unique = true)
+
+	@Column(nullable = false)
 	private String distrito;
-	
-	@Column (nullable = false, unique = true)
+
+	@Column(nullable = false)
 	private String bairro;
-	
-	@Column (nullable = true)
+
+	@Column(nullable = true)
 	private String rua;
 
-	@Column (nullable = false)
+	@Column(nullable = false)
 	private Integer numeroDeCasa;
 
 	public String getCidade() {
@@ -31,7 +30,6 @@ public class Endereco extends AbstractEntity<Long> {
 		this.cidade = cidade;
 	}
 
-	
 	public String getDistrito() {
 		return distrito;
 	}
@@ -64,6 +62,4 @@ public class Endereco extends AbstractEntity<Long> {
 		this.numeroDeCasa = numeroDeCasa;
 	}
 
-	
-	
 }

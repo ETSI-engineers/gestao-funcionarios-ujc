@@ -52,7 +52,9 @@
                                         <h3 class="card-title">Faculdades Disponiveis</h3>
                                     </div>
                                     <!-- /.card-header -->
+
                                     <div class="card-body">
+                                        <div th:replace="fragments/alert"></div>
                                         <table id="example1" class="table table-bordered table-striped">
                                             <thead>
                                                 <tr>
@@ -65,7 +67,7 @@
                                             <tbody>
                                                 <tr th:each="d : ${departamentos}">
                                                     <td th:text="${d.nome}"></td>
-                                                    <td th:text="${d.faculdade}"></td>
+                                                    <td th:text="${d.faculdade.descricao}"></td>
 
 
                                                     <td class="project-actions text-right">
@@ -80,11 +82,15 @@
                                                             </i>
                                                             Editar
                                                         </a>
-                                                        <a class="btn btn-danger btn-sm" href="#">
+
+                                                        <button th:id="${ 'btn_departamentos/apagar/' + d.id}"
+                                                            type="button" class="btn btn-danger btn-sm"
+                                                            data-toggle="modal" data-target="#myModal">
                                                             <i class="fas fa-trash">
-                                                            </i>
-                                                            Apagar
-                                                        </a>
+                                                            </i> Apagar
+                                                        </button>
+
+
                                                     </td>
 
                                                 </tr>
@@ -103,6 +109,9 @@
                         <!-- /.row -->
                     </div>
                     <!-- /.container-fluid -->
+                    <div th:replace="fragments/modal :: modal">
+
+                    </div>
                 </section>
                 <!-- /.content -->
             </div>
@@ -160,7 +169,22 @@
                     "responsive": true,
                 });
             });
+            // FUNCAO DE JQUERY PARA CAPTURAR A URLL GERADA PELO MODAL E ENVIAR PARA O BOTAO DE CONFIRMACAO DE REMOCAO DE REGISTOS
+
+            var url = "";
+
+            $('button[id*="btn"]').click(function () {
+                url = "http://localhost:8080/" + $(this).attr('id').split("_")[1];
+            });
+
+            $('#ok_confirm').click(function () {
+
+                document.location.href = url;
+            });
+
         </script>
+
+
     </body>
 
 </html>

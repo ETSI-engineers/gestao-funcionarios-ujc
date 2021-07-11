@@ -11,4 +11,5 @@ public interface DepartamentoService {
 	void apagar (Long id);
 	Departamento pesquisarPorId(Long id);
 	List<Departamento>pesquisarTodos();
+    boolean departamentoTemCargos(Long id);
 }

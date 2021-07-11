@@ -42,4 +42,12 @@ dao.delete(id);
 		return dao.findAll();
 	}
 
+	@Override
+	public boolean departamentoTemCargos(Long id) {
+		if (pesquisarPorId(id).getCargos().isEmpty()){
+			return false;
+		}
+		return true;
+	}
+
 }

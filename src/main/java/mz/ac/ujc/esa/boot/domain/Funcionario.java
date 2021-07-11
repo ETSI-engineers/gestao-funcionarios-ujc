@@ -3,8 +3,12 @@ package mz.ac.ujc.esa.boot.domain;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @SuppressWarnings("serial")
 @Entity
@@ -14,12 +18,15 @@ public class Funcionario extends AbstractEntity<Long> {
 	@Column(nullable = false, unique = true)
 	private String nome;
 
+	@DateTimeFormat(iso = ISO.DATE)
 	@Column(name = "data_nascimento", nullable = false, columnDefinition = "DATE")
 	private Date data_nasc;
 
+	@DateTimeFormat(iso = ISO.DATE)
 	@Column(name = "data_entrada", nullable = false, columnDefinition = "DATE")
 	private LocalDate dataEntrada;
 
+	@DateTimeFormat(iso = ISO.DATE)
 	@Column(name = "data_saida", columnDefinition = "DATE")
 	private LocalDate dataSaida;
 
@@ -38,6 +45,10 @@ public class Funcionario extends AbstractEntity<Long> {
 	@ManyToOne
 	@JoinColumn(name = "nivelAcademico_id_fk", nullable = false)
 	private NivelAcademico nivelAcademico;
+
+	@OneToOne
+	@JoinColumn(name = "cargo_id_fk")
+	private Cargo cargo;
 
 	public String getNome() {
 		return nome;
@@ -101,6 +112,14 @@ public class Funcionario extends AbstractEntity<Long> {
 
 	public void setNivelAcademico(NivelAcademico nivelAcademico) {
 		this.nivelAcademico = nivelAcademico;
+	}
+
+	public Cargo getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(Cargo cargo) {
+		this.cargo = cargo;
 	}
 
 }

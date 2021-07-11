@@ -4,10 +4,10 @@ import javax.persistence.*;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name="TIPO")
+@Table(name = "TIPO")
 public class Tipo extends AbstractEntity<Long> {
 
-	@Column(nullable=false, unique = true)
+	@Column(nullable = false)
 	private String designacao;
 
 	public String getDesignacao() {
@@ -17,6 +17,5 @@ public class Tipo extends AbstractEntity<Long> {
 	public void setDesignacao(String designacao) {
 		this.designacao = designacao;
 	}
-	
-	
+
 }

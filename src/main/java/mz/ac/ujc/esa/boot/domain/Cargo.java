@@ -16,19 +16,20 @@ public class Cargo extends AbstractEntity<Long> {
 	@JoinColumn(name = "departamento_id_fk")
 	private Departamento departamento;
 
-	// @OneToMany(mappedBy = "cargo")
-	// private List<Funcionario> funcionarios;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "funcionario_id_fk")
-	private Funcionario funcionario;
+	@OneToMany(mappedBy = "cargo")
+	private List<Funcionario> funcionarios;
 
-	// public List<Funcionario> getFuncionarios() {
-	// return funcionarios;
-	// }
+	// @OneToOne(cascade = CascadeType.ALL)
+	// @JoinColumn(name = "funcionario_id_fk")
+	// private Funcionario funcionario;
 
-	// public void setFuncionarios(List<Funcionario> funcionarios) {
-	// this.funcionarios = funcionarios;
-	// }
+	public List<Funcionario> getFuncionarios() {
+		return funcionarios;
+	}
+
+	public void setFuncionarios(List<Funcionario> funcionarios) {
+		this.funcionarios = funcionarios;
+	}
 
 	public String getNome() {
 		return nome;
@@ -46,11 +47,11 @@ public class Cargo extends AbstractEntity<Long> {
 		this.departamento = departamento;
 	}
 
-	public Funcionario getFuncionario() {
-		return funcionario;
-	}
+	// public Funcionario getFuncionario() {
+	// return funcionario;
+	// }
 
-	public void setFuncionario(Funcionario funcionario) {
-		this.funcionario = funcionario;
-	}
+	// public void setFuncionario(Funcionario funcionario) {
+	// this.funcionario = funcionario;
+	// }
 }
