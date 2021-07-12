@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+
     </head>
 
     <body class="hold-transition sidebar-mini">
@@ -216,6 +217,7 @@
                                     </div>
                                     <!-- /.card-header -->
                                     <div class="card-body">
+                                        <div th:replace="fragments/alert"></div>
                                         <table id="example1" class="table table-bordered table-striped">
                                             <thead>
                                                 <tr>
@@ -223,94 +225,61 @@
                                                     <th>Data de Nascimento</th>
                                                     <th>Departamento</th>
                                                     <th>Nivel Académico</th>
+                                                    <th>Tipo</th>
                                                     <th>Endereço</th>
                                                     <th>Data de Entrada</th>
-                                                    <th>Tipo</th>
                                                     <th>Accoes</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>Helder Josue</td>
-                                                    <td>30/01/2020
+                                                <tr th:each="f : ${funcionarios}">
+                                                    <td th:text="${f.nome}">Helder Josue</td>
+
+                                                    <td th:text="${#dates.format(f.data_nasc, 'dd/MM/yyyy')}">
+                                                        01/08/2014</td>
+                                                    <th th:text="${f.departamento}">Desenvo</th>
+                                                    <td th:text="${f.nivelAcademico.nome}"></td>
+                                                    <td th:text="${f.tipo.designacao}"></td>
+
+                                                    <td>
+                                                        <center>
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-toggle="popover" title="Endereço"
+                                                                th:attr="data-content=${f.endereco.cidade +', '+ f.endereco.distrito +
+                                                             ', ' + f.endereco.bairro + ', ' + f.endereco.rua + ', '+ f.endereco.numeroDeCasa}">
+                                                                <i class="fa fa-eye">
+                                                                </i></button>
+                                                        </center>
+
                                                     </td>
-                                                    <td>Desenvolvimento</td>
-                                                    <td>Licenciatura</td>
-                                                    <td>MAGOANINE</td>
-                                                    <td>14/02/2021</td>
-                                                    <td>CTA</td>
+
+                                                    <td th:text="${#dates.format(f.dataEntrada, 'dd/MM/yyyy')}">
+                                                        01/08/2014</td>
+
                                                     <td class="project-actions text-right">
                                                         <!-- <a class="btn btn-primary btn-sm" href="#">
                                                             <i class="fas fa-folder">
                                                             </i>
                                                             Ver
                                                         </a> -->
-                                                        <a class="btn btn-info btn-sm" href="#">
+                                                        <a class="btn btn-info btn-sm"
+                                                            th:href="@{/funcionarios/editar/{id} (id=${f.id})}">
                                                             <i class="fas fa-pencil-alt">
                                                             </i>
                                                             Editar
                                                         </a>
-                                                        <a class="btn btn-danger btn-sm" href="#">
+
+                                                        <button
+                                                            th:id="${#strings.concat('btn_funcionarios/apagar/', f.id)}"
+                                                            type="button" class="btn btn-danger btn-sm"
+                                                            data-toggle="modal" data-target="#myModal">
                                                             <i class="fas fa-trash">
-                                                            </i>
-                                                            Apagar
-                                                        </a>
+                                                            </i> Apagar
+                                                        </button>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Helder Josue</td>
-                                                    <td>30/01/2020
-                                                    </td>
-                                                    <td>Desenvolvimento</td>
-                                                    <td>Licenciatura</td>
-                                                    <td>MAGOANINE</td>
-                                                    <td>14/02/2021</td>
-                                                    <td>CTA</td>
-                                                    <td class="project-actions text-right">
-                                                        <!-- <a class="btn btn-primary btn-sm" href="#">
-                                                            <i class="fas fa-folder">
-                                                            </i>
-                                                            Ver
-                                                        </a> -->
-                                                        <a class="btn btn-info btn-sm" href="#">
-                                                            <i class="fas fa-pencil-alt">
-                                                            </i>
-                                                            Editar
-                                                        </a>
-                                                        <a class="btn btn-danger btn-sm" href="#">
-                                                            <i class="fas fa-trash">
-                                                            </i>
-                                                            Apagar
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Helder Josue</td>
-                                                    <td>30/01/2020
-                                                    </td>
-                                                    <td>Desenvolvimento</td>
-                                                    <td>Licenciatura</td>
-                                                    <td>MAGOANINE</td>
-                                                    <td>14/02/2021</td>
-                                                    <td>CTA</td>
-                                                    <td class="project-actions text-right">
-                                                        <!-- <a class="btn btn-primary btn-sm" href="#">
-                                                            <i class="fas fa-folder">
-                                                            </i>
-                                                            Ver
-                                                        </a> -->
-                                                        <a class="btn btn-info btn-sm" href="#">
-                                                            <i class="fas fa-pencil-alt">
-                                                            </i>
-                                                            Editar
-                                                        </a>
-                                                        <a class="btn btn-danger btn-sm" href="#">
-                                                            <i class="fas fa-trash">
-                                                            </i>
-                                                            Apagar
-                                                        </a>
-                                                    </td>
-                                                </tr>
+
+
                                             </tbody>
 
                                         </table>
@@ -323,6 +292,7 @@
                         </div>
                         <!-- /.row -->
                     </div>
+                    <div th:replace="fragments/modal :: modal"></div>
                     <!-- /.container-fluid -->
                 </section>
                 <!-- /.content -->
@@ -361,6 +331,10 @@
         <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
         <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
         <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+
+
         <!-- AdminLTE App -->
         <script src="../../dist/js/adminlte.min.js"></script>
         <!-- AdminLTE for demo purposes -->
@@ -381,6 +355,30 @@
                     "autoWidth": false,
                     "responsive": true,
                 });
+            });
+
+
+            $(function () {
+                $('[data-toggle="popover"]').popover();
+            });
+
+            $(document).ready(function () {
+                $(".navbar-toggle").click(function () {
+                    $(".sidebar").toggleClass("sidebar-open");
+                })
+            });
+
+            // FUNCAO DE JQUERY PARA CAPTURAR A URLL GERADA PELO MODAL E ENVIAR PARA O BOTAO DE CONFIRMACAO DE REMOCAO DE REGISTOS
+
+            var url = "";
+
+            $('button[id*="btn"]').click(function () {
+                url = "http://localhost:8080/" + $(this).attr('id').split("_")[1];
+            });
+
+            $('#ok_confirm').click(function () {
+
+                document.location.href = url;
             });
         </script>
     </body>

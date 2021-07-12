@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import mz.ac.ujc.esa.boot.domain.Cargo;
+import mz.ac.ujc.esa.boot.domain.Departamento;
 import mz.ac.ujc.esa.boot.domain.Funcionario;
 import mz.ac.ujc.esa.boot.domain.NivelAcademico;
 import mz.ac.ujc.esa.boot.domain.Tipo;
 import mz.ac.ujc.esa.boot.service.CargoService;
+import mz.ac.ujc.esa.boot.service.DepartamentoService;
 import mz.ac.ujc.esa.boot.service.FuncionarioService;
 import mz.ac.ujc.esa.boot.service.NivelAcademicoService;
 import mz.ac.ujc.esa.boot.service.TipoService;
@@ -36,6 +38,9 @@ public class FuncionarioController {
 
     @Autowired
     private NivelAcademicoService nivelAcademicoService;
+
+    @Autowired
+    private DepartamentoService departamentoService;
 
     @GetMapping("cadastrar")
     public String cadastrar(Funcionario funcionario) {
@@ -67,7 +72,7 @@ public class FuncionarioController {
     @PostMapping("editar")
     public String actualizar(Funcionario funcionario, RedirectAttributes atrr) {
         funcionarioService.editar(funcionario);
-        atrr.addFlashAttribute("success", "Funcionarios actualizado com sucesso.");
+        atrr.addFlashAttribute("success", "Funcionario actualizado com sucesso.");
         return "redirect:/funcionarios/listar";
     }
 
@@ -79,20 +84,19 @@ public class FuncionarioController {
      * @param model
      * @return
      */
-    // @GetMapping("apagar/{id}")
-    // public String apagar(@PathVariable("id") Long id, ModelMap model) {
+    @GetMapping("apagar/{id}")
+    public String apagar(@PathVariable("id") Long id, ModelMap model) {
 
-    // if (funcionarioService.cargoTemFuncionarios(id)) {
-    // model.addAttribute("fail", "Cargo nao pode ser removido. Possui
-    // Funcionario(s) Vinculado(s) a ele.");
-    // } else {
-    // cargoService.apagar(id);
-    // model.addAttribute("success", "Cargo removido com sucesso.");
+        if (cargoService.cargoTemFuncionarios(id)) {
+            model.addAttribute("fail", "Funcionario nao pode ser removido. Possui Cargos(s) Vinculado(s) a ele.");
+        } else {
+            cargoService.apagar(id);
+            model.addAttribute("success", "Funcionario removido com sucesso.");
 
-    // }
+        }
 
-    // return listar(model);
-    // }
+        return listar(model);
+    }
 
     @GetMapping("minhas")
     public String requisicoesFunc() {
@@ -127,7 +131,7 @@ public class FuncionarioController {
      * @return
      */
     @ModelAttribute("cargos")
-    public List<Cargo> listaDepartamentos() {
+    public List<Cargo> listaCargos() {
         return cargoService.pesquisarTodos();
     }
 
@@ -151,5 +155,16 @@ public class FuncionarioController {
     @ModelAttribute("niveis")
     public List<NivelAcademico> listaNiveis() {
         return nivelAcademicoService.buscarTodos();
+    }
+
+    /**
+     * Metodo para listar todos os niveis academicos e mostrar na combobox presente
+     * no formulario
+     * 
+     * @return
+     */
+    @ModelAttribute("departamentos")
+    public List<Departamento> listaDepartamentos() {
+        return departamentoService.pesquisarTodos();
     }
 }

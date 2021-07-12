@@ -1,9 +1,7 @@
 package mz.ac.ujc.esa.boot.domain;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.*;
 
@@ -24,7 +22,7 @@ public class Funcionario extends AbstractEntity<Long> {
 
 	@DateTimeFormat(iso = ISO.DATE)
 	@Column(name = "data_entrada", nullable = false, columnDefinition = "DATE")
-	private LocalDate dataEntrada;
+	private Date dataEntrada;
 
 	@DateTimeFormat(iso = ISO.DATE)
 	@Column(name = "data_saida", columnDefinition = "DATE")
@@ -66,11 +64,11 @@ public class Funcionario extends AbstractEntity<Long> {
 		this.data_nasc = data_nasc;
 	}
 
-	public LocalDate getDataEntrada() {
+	public Date getDataEntrada() {
 		return dataEntrada;
 	}
 
-	public void setDataEntrada(LocalDate dataEntrada) {
+	public void setDataEntrada(Date dataEntrada) {
 		this.dataEntrada = dataEntrada;
 	}
 

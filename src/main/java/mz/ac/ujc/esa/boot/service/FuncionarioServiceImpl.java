@@ -11,14 +11,17 @@ import mz.ac.ujc.esa.boot.domain.Funcionario;
 
 @Service
 @Transactional(readOnly = false)
-public class FuncionarioServiceImpl implements FuncionarioService{
+public class FuncionarioServiceImpl implements FuncionarioService {
 
-	@Autowired(required=false)
+	@Autowired(required = false)
 	private FuncionarioDao dao;
-	
+
+	@Autowired(required = false)
+	private CargoService cargoService;
+
 	@Override
 	public void registar(Funcionario funcionario) {
-		dao.save(funcionario);		
+		dao.save(funcionario);
 	}
 
 	@Override
@@ -31,16 +34,26 @@ public class FuncionarioServiceImpl implements FuncionarioService{
 		dao.delete(id);
 	}
 
-	@Override @Transactional(readOnly = true)
+	@Override
+	@Transactional(readOnly = true)
 	public Funcionario pesquisarPorId(Long id) {
-		// TODO Auto-generated method stub
+
 		return dao.findById(id);
 	}
 
-	@Override @Transactional(readOnly = true)
+	@Override
+	@Transactional(readOnly = true)
 	public List<Funcionario> pesquisarTodos() {
-		// TODO Auto-generated method stub
+
 		return dao.findAll();
+	}
+
+	@Override
+	public boolean funcionariosTemCargo(Long id) {
+		if (cargoService.cargoTemFuncionarios(id)) {
+			return false;
+		}
+		return true;
 	}
 
 }

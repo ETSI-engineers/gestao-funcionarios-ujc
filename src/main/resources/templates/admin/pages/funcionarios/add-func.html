@@ -260,8 +260,8 @@
 
                                                 <div class="form-group">
                                                     <label>Cargo</label>
-                                                    <select id="departamento" class="form-control select2"
-                                                        style="width: 100%;" th:field="*{cargo}">
+                                                    <select id="cargo" class="form-control select2" style="width: 100%;"
+                                                        th:field="*{cargo}">
                                                         <option value="">Selecione</option>
                                                         <option th:each="c : ${cargos}" th:value="${c.id}"
                                                             th:text="${c.nome}">Helder
@@ -294,6 +294,19 @@
                                                     <input type="date" name="data-nasc" id="data-nasc"
                                                         class="form-control" th:field="*{data_nasc}">
                                                 </div>
+
+                                                <div class="form-group">
+                                                    <label>Departamento</label>
+                                                    <select id="departamento" class="form-control select2"
+                                                        style="width: 100%;" th:field="*{departamento}">
+                                                        <option value="">Selecione</option>
+                                                        <option th:each="d : ${departamentos}" th:value="${d.id}"
+                                                            th:text="${d.nome}">RH
+                                                        </option>
+
+                                                    </select>
+                                                </div>
+
                                                 <div class="form-group">
                                                     <label for="exampleInputFile">Tipo</label>
 
@@ -341,7 +354,7 @@
 
 
                                                 <div class=" form-group">
-
+                                                    <input type="hidden" name="endereco.id" th:field="*{endereco.id}">
                                                     <input type="hidden" name="id" th:field="*{id}">
                                                 </div>
                                                 <!-- /.form-group -->
@@ -418,7 +431,20 @@
         <!-- AdminLTE for demo purposes -->
         <script src="../../dist/js/demo.js"></script>
         <!-- Page specific script -->
+        <script>
+            // FUNCAO DE JQUERY PARA CAPTURAR A URLL GERADA PELO MODAL E ENVIAR PARA O BOTAO DE CONFIRMACAO DE REMOCAO DE REGISTOS
 
+            var url = "";
+
+            $('button[id*="btn"]').click(function () {
+                url = "http://localhost:8080/" + $(this).attr('id').split("_")[1];
+            });
+
+            $('#ok_confirm').click(function () {
+
+                document.location.href = url;
+            });
+        </script>
     </body>
 
 </html>
