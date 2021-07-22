@@ -13,7 +13,7 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 @Table(name = "FUNCIONARIOS")
 public class Funcionario extends AbstractEntity<Long> {
 
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false)
 	private String nome;
 
 	@DateTimeFormat(iso = ISO.DATE)

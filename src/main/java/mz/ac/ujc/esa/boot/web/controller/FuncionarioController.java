@@ -17,6 +17,7 @@ import mz.ac.ujc.esa.boot.domain.Departamento;
 import mz.ac.ujc.esa.boot.domain.Funcionario;
 import mz.ac.ujc.esa.boot.domain.NivelAcademico;
 import mz.ac.ujc.esa.boot.domain.Tipo;
+import mz.ac.ujc.esa.boot.repository.IFuncionarioRepository;
 import mz.ac.ujc.esa.boot.service.CargoService;
 import mz.ac.ujc.esa.boot.service.DepartamentoService;
 import mz.ac.ujc.esa.boot.service.FuncionarioService;
@@ -41,6 +42,9 @@ public class FuncionarioController {
 
     @Autowired
     private DepartamentoService departamentoService;
+
+    @Autowired
+    IFuncionarioRepository iFuncionarioRepository;
 
     @GetMapping("cadastrar")
     public String cadastrar(Funcionario funcionario) {
@@ -98,6 +102,14 @@ public class FuncionarioController {
         return listar(model);
     }
 
+    @GetMapping("/pesquisar/{nome}")
+    public List<Funcionario> pesquisarNome(@PathVariable String nome) {
+        return iFuncionarioRepository.buscarPorNome(nome);
+    }
+
+    /**
+     * SECCAO PARA CADASTRO DE REQUISICOES DO FUNCIONARIO
+     */
     @GetMapping("minhas")
     public String requisicoesFunc() {
 
@@ -109,6 +121,10 @@ public class FuncionarioController {
 
         return "/admin/pages/funcionarios/add-requi";
     }
+
+    /**
+     * SECCAO PARA CADASTRO DE REQUISICOES DO FUNCIONARIO
+     */
 
     /**
      * metodo para fazer o registo de cargos com recurso ao formulario de cadastro
